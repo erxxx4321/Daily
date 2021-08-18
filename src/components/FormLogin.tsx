@@ -35,7 +35,7 @@ export default function FormLogin() {
 					<FormButton type="submit" />
 					<FormLink>
 						Don't have password, please
-						<Link to="/Daily/signup" className="link">
+						<Link to="/signup" className="link">
 							{' '}
 							sign up
 						</Link>

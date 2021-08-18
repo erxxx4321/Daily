@@ -43,7 +43,7 @@ export default function FormSignup() {
 					<FormButton type="submit" />
 					<FormLink>
 						Already registered?
-						<Link to="/Daily/login" className="link">
+						<Link to="/login" className="link">
 							{' '}
 							Login
 						</Link>

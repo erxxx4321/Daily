@@ -9,13 +9,13 @@ export default function App() {
 		<Router>
 			<Navbar />
 			<Switch>
-				<Route path="/Daily/signup">
+				<Route path="/signup">
 					<Signup />
 				</Route>
-				<Route path="/Daily/login">
+				<Route path="/login">
 					<Login />
 				</Route>
-				<Route path="/Daily">
+				<Route path="/">
 					<Home />
 				</Route>
 			</Switch>
