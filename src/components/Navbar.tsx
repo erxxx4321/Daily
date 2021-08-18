@@ -1,43 +1,60 @@
 import styled from '@emotion/styled';
 import { FiHome, FiLogIn } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Turn as Hamburger } from 'hamburger-react';
 
-export default function Navbar() {
+const Navbar = () => {
 	const [isOpen, setOpen] = useState(false);
+	const [isHide, setHide] = useState(false);
+	const [prev, setPrev] = useState(0);
+
 	const close = () => {
 		setOpen(false);
 	};
 
-	let prevScroll = window.pageYOffset;
-	window.onscroll = function () {
-		const currentScroll = window.pageYOffset;
-		// console.log(prevScroll, currentScroll)
-		if (prevScroll > currentScroll || prevScroll < 0) {
-			document.querySelector('#navbar').style.top = '0';
-		} else {
-			document.querySelector('#navbar').style.top = '-50px';
+	useEffect(() => {
+		window.addEventListener('scroll', handleScroll);
+	}, [prev]);
+
+	function handleScroll() {
+		if (prev > window.pageYOffset) {
+			setHide(false); // scroll up
+		} else if (prev < window.pageYOffset) {
+			setHide(true); // scroll down
 		}
-		prevScroll = currentScroll;
-	};
+		setPrev(window.pageYOffset);
+	}
 
 	return (
 		<Nav>
-			<Hamburger rounded toggled={isOpen} toggle={setOpen} size={32} color="var(--white01)" distance="lg" />
-			<div className={'nav-list ' + (isOpen ? 'open' : '')}>
-				<Link className="nav" to="/Daily" onClick={close}>
-					<FiHome style={{ fontSize: '31px' }} />
-					<span>HOME</span>
-				</Link>
-				<Link className="nav" to="/Daily/login" onClick={close}>
-					<FiLogIn style={{ fontSize: '31px' }} />
-					<span>LOGIN</span>
-				</Link>
-			</div>
+			{!isHide && (
+				<>
+					<Hamburger
+						rounded
+						toggled={isOpen}
+						toggle={setOpen}
+						size={32}
+						color="var(--white01)"
+						distance="lg"
+					/>
+					<div className={'nav-list ' + (isOpen ? 'open' : '')}>
+						<Link className="nav" to="/Daily" onClick={close}>
+							<FiHome style={{ fontSize: '31px' }} />
+							<span>HOME</span>
+						</Link>
+						<Link className="nav" to="/Daily/login" onClick={close}>
+							<FiLogIn style={{ fontSize: '31px' }} />
+							<span>LOGIN</span>
+						</Link>
+					</div>
+				</>
+			)}
 		</Nav>
 	);
-}
+};
+
+export default Navbar;
 
 /*
  * Style
