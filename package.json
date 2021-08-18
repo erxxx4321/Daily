@@ -1,5 +1,4 @@
 {
-	"homepage": "https://kaorihata.github.io/Daily/",
 	"name": "daily",
 	"version": "0.1.0",
 	"private": true,
@@ -9,8 +8,6 @@
 		"lint": "eslint .",
 		"test": "prettier --check .",
 		"eject": "react-scripts eject",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
 		"format": "prettier --write .",
 		"prepare": "husky install"
 	},
