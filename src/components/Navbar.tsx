@@ -39,11 +39,11 @@ const Navbar = () => {
 						distance="lg"
 					/>
 					<div className={'nav-list ' + (isOpen ? 'open' : '')}>
-						<Link className="nav" to="/Daily" onClick={close}>
+						<Link className="nav" to="/" onClick={close}>
 							<FiHome style={{ fontSize: '31px' }} />
 							<span>HOME</span>
 						</Link>
-						<Link className="nav" to="/Daily/login" onClick={close}>
+						<Link className="nav" to="/login" onClick={close}>
 							<FiLogIn style={{ fontSize: '31px' }} />
 							<span>LOGIN</span>
 						</Link>
