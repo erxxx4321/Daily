@@ -1,6 +1,6 @@
 ## Daily
 
-[![demo](demo.png)](https://kaorihata.github.io/Daily/)
+[![demo](demo.png)](https://daily-lifenews.netlify.app/)
 <br>
 
 ### Description
