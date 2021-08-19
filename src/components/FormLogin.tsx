@@ -25,12 +25,12 @@ export default function FormLogin() {
 			</BoxHeader>
 			<BoxContent>
 				<Form>
-					<FormError>Invalid Email or password</FormError>
+					{/* <FormError>Invalid Email or password</FormError> */}
 					<FormText>
 						<input name="email" placeholder="Email" required />
 					</FormText>
 					<FormText>
-						<input name="password" placeholder="Password" />
+						<input name="password" placeholder="Password" required />
 					</FormText>
 					<FormButton type="submit" />
 					<FormLink>
